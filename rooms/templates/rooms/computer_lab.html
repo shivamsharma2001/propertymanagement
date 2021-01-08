@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'index.html'%}
+ {%load static%}
+  {%block body_block%}
+    <h1>Welcome ! You are at the Computer Lab Booking Page</h1>
+    <h2>Choose from below list:</h2>
+    <ol>
+      {%for entry in lab %}
+      <li>
+      <div class="card mb-3" style="max-width: 54000px;">
+       <div class="row no-gutters">
+        <div class="col-md-8">
+           <img  src="{% static 'images/pisa.jpg'%}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-4">
+           <div class="card-body">
+              <h5 class="card-title">{{entry.name}}</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <ul>
+                <li>capactiy : {{entry.capacity}}</li>
+                <li>location : {{entry.location}}</li>
+              </ul><br><br>
+              <button class="w3-button w3-block w3-black w3-margin-bottom"><a href="booking/{{entry.capacity}}">Book Now</a></button>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+           </div>
+        </div>
+       </div>
+      </div>
+      </li>
+      {%endfor%}
+    </ol>
+  {%endblock%}

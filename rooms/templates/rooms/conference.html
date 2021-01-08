@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'index.html'%}
+  {%block body_block%}
+    <h1>Welcome ! You are at the Confernce room booking Page</h1>
+    <h2>Choose from below list:</h2>
+    <ol>
+      {%for entry in conf_list %}
+      <li>{{entry.name}}</li>
+      <ul>
+        <li>capacity : {{entry.capacity}}</li>
+        <li>location : {{entry.location}}</li>
+      </ul><br><br>
+      {%endfor%}
+    </ol>
+  {%endblock%}
